@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>里客云图床-中关村/搜狐/头条/网易图床/聚合图床接口/大厂图床/图片在线上传获取图片外链工具</title>
+  <meta name="keywords" content="在线图床,聚合图床,图床接口,稳定图床,在线图片上传,图片空间,阿里图床,百度图床,腾讯图床,搜狐图床,小米图床,网易图床,中关村图床,头条图床,腾讯图床,新浪图床,苏宁图床,掘金图床,SM.MS,imgurl,淘宝图床,爱奇艺图床,豆瓣图床,京东图床,拼多多图床,图床API,上传图片,图片上传,图片储存,图片网盘,图片服务器,图片外链">
+  <meta name="description" content="里客云聚合图床是一个提供免服务器的图床上传工具，开发者无法准备图片服务器，使用我们提供的第三方图片服务器，稳定，大厂，均来源各稳定的互联网企业服务器，快速，无服务器压力，多个API接口上传，一键上传，一键复制，任意调用，无防盗链等优点。">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+  <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="icon" href="https://ae01.alicdn.com/kf/H3654e85c662841789f90a184afeb5f28H.png" type="image/x-icon" />
+</head>
+<body>
+
+<div class="container">
+  <h2>里客云 - 聚合图床</h2>
+  <div class="card">
+    <!-- 表单 -->
+    <form id="form" enctype="multipart/form-data">
+      <!-- 选择接口 -->
+      <div class="card-header">
+      	<span class="label a1" onclick="a1();" style="background: #6c757d;color: #fff;">
+      		中关村
+        	<label><input name="api" type="radio" id="a1" value="zol.php" checked="checked"/>中关村 </label>
+        </span>
+        <span class="label a2" onclick="a2();">
+        	网易
+        	<label><input name="api" type="radio" id="a2" value="wangyi.php" />网易 </label>
+        </span> 
+        <span class="label a3" onclick="a3();">
+        	头条
+        	<label><input name="api" type="radio" id="a3" value="toutiao.php" />头条 </label>
+        </span>
+      </div>
+      <!-- 选择本地图片 -->
+      <div class="card-body">
+        <!-- 本地上传 -->
+        <div class="btn btn-outline-secondary">
+          本地上传
+          <input type="file" id="fileAttach" class="file_btn" name="file" onclick="lunxun()"/>
+        </div>
+
+        <!-- 显示文件名 -->
+        <span class="file-name">请选择本地文件</span>
+        
+        <!-- 上传按钮 -->
+        <span class="upload-file"></span>
+      </div>
+    </form>
+    
+    <!-- 显示链接 -->
+    <div class="card-footer" id="image_url" style="display: none;"></div>
+	
+	<!-- 复制链接按钮 -->
+    <div class="copy" id="copy"></div>
+
+  </div>
+
+  <!-- 复制提示 -->
+  <div class="alert alert-success" style="margin-top: 20px;display: none;">
+    <strong>复制成功!</strong> 
+  </div>
+
+  <!-- 底部 -->
+  <p style="text-align: center;color: #666;font-size: 14px;margin:30px 0;">里客云科技 版本：v1.0 <a href="http://www.likeyunba.com">版本更新</a></p>
+
+</div>
+
+<!-- JS -->
+<script src="js/jquery-3.3.1.js"></script>
+<script src="js/click.js"></script>
+<script src="js/getfile.js"></script>
+<script src="js/upload.js"></script>
+<script src="js/copy.js"></script>
+</body>
+</html>

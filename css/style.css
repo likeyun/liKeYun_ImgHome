@@ -1,0 +1,96 @@
+*{
+	margin:0;
+	padding:0;
+}
+
+.container{
+	width: 100%;
+}
+
+label{
+	margin-right: 10px;
+	cursor:pointer;
+	opacity: 0;
+	position: relative;
+	top: -30px;
+	/*border:1px solid #f00;*/
+	width: 70px;
+}
+
+
+.container .card .card-header{
+	height: 55px;
+}
+
+
+.container .card .card-header .label{
+	width: 70px;
+	background: none;
+	color: #6c757d;
+	border-radius: 5px;
+	border:1px solid #6c757d;
+	font-size: 15px;
+	height: 30px;
+	float: left;
+	/*padding: 2px 0;*/
+	text-align: center;
+	line-height: 29px;
+	margin-right: 10px;
+	display: block;
+}
+
+h2{
+	text-align: center;
+	margin:50px 0;
+}
+
+.container .card .card-body .btn-outline-secondary{
+	position: relative;
+	cursor: pointer;
+	background: #6c757d;
+	color: #fff;
+}
+
+
+.container .card .card-body .btn-outline-secondary:hover{
+	background: #333;
+}
+
+
+.container .card .card-body .file_btn{
+	width: 90px;
+	height: 38px;
+	position: absolute;
+	top: 0;
+	border:1px solid #f00;
+	left: 0;
+	opacity: 0;
+	cursor: pointer;
+}
+
+
+.container .card .card-footer .card-footer-left{
+	width: 60%;
+	height: 38px;
+	float: left;
+	line-height: 38px;
+	white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    word-break: break-all;
+}
+
+.container .card .card-footer .card-footer-left .input{
+	width: 100%;
+	background: none;
+	outline: none;
+	border:none;
+}
+
+
+.container .card .card-footer .card-footer-right{
+	width: 30%;
+	height: 38px;
+	float: right;
+	line-height: 38px;
+}
