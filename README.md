@@ -11,4 +11,4 @@
 
 demo
 ---
-http://www.likeyunba.com/upload/juhe/
+http://upload.likeyunba.com/
