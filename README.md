@@ -23,4 +23,4 @@
 `搜狐`
 
 # 在线演示
-https://upload.likeyunba.com/
+http://upload.likeyunba.com/
