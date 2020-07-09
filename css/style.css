@@ -1,0 +1,75 @@
+/*CSS*/
+.container h2{
+	text-align: center;
+	margin:50px 0;
+}
+
+/*API选项样式*/
+.container .card .card-header button{
+	position: relative;
+	margin-right: 5px;
+	margin-bottom: 8px;
+}
+
+.container .card .card-header input{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	cursor: pointer;
+}
+
+
+/*addClass通道按钮*/
+.select_background{
+	background: #6c757d;
+	color: #fff;
+}
+
+/*本地上传*/
+.container .card .card-body .imgselect_btn{
+	width: 110px;
+	height: 40px;
+	background: #6c757d;
+	color: #fff;
+	line-height: 40px;
+	text-align: center;
+	position: relative;
+	border-radius: 3px;
+	cursor: pointer;
+	margin:0 auto;
+}
+
+.container .card .card-body .imgselect_btn:hover{
+	background: #666;
+}
+
+.container .card .card-body .imgselect_btn input{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	opacity: 0;
+	line-height: normal;
+	cursor: pointer;
+}
+
+#copy{
+	margin-top:10px;
+	cursor: pointer;
+	display: none;
+	width: 100px;
+}
+
+.container .imgdiv{
+	margin-top: 20px;
+}
+
+.container .imgdiv img{
+	max-width: 60%;
+	margin:0 auto;
+	display: block;
+}
