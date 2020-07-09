@@ -24,3 +24,6 @@
 
 # 在线演示
 http://upload.likeyunba.com/
+
+# 如何使用
+下载上面所有代码，直接上传到服务器，访问index.html即可
