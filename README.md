@@ -20,7 +20,7 @@
 `搜狐`
 
 # 在线演示
-http://upload.likeyunba.com/
+http://inews.gtimg.com/newsapp_bt/0/14446103724/641
 
 # 如何使用
 下载上面所有代码，直接上传到服务器，访问index.html即可
