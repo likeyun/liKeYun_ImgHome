@@ -24,3 +24,6 @@ http://inews.gtimg.com/newsapp_bt/0/14446103724/641
 
 # 如何使用
 下载上面所有代码，直接上传到服务器，访问index.html即可
+
+交流、解决问题、定制、学习等可以加入我们的开发者交流群
+https://sc01.alicdn.com/kf/H574da7b723cd4c088b082ab93ab6eb8dV.png
