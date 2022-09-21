@@ -15,55 +15,13 @@
 <body>
 
 <div class="container">
-  <h2>里客云 - 聚合图床</h2>
+  <h2>里客云聚合图床</h2>
   <div class="card">
     <!-- API选择 -->
     <div class="card-header">
-      <button type="button" class="select_background btn btn-outline-secondary" onclick="">
-        <input type="radio" name="api_select" id="c1" checked>葫芦侠
-      </button>
-      <button type="button" class="btn btn-outline-secondary" onclick="">
-        <input type="radio" name="api_select" id="c2">百度
-      </button>
-      <button type="button" class="btn btn-outline-secondary" onclick="">
-        <input type="radio" name="api_select" id="c3">小米
-      </button>
-      <button type="button" class="btn btn-outline-secondary" onclick="">
-        <input type="radio" name="api_select" id="c4">今日头条
-      </button>
-      <button type="button" class="btn btn-outline-secondary" onclick="">
-        <input type="radio" name="api_select" id="c5">悟空问答
-      </button>
-      <button type="button" class="btn btn-outline-secondary" onclick="">
-        <input type="radio" name="api_select" id="c6">新浪
-      </button>
-      <button type="button" class="btn btn-outline-secondary" onclick="">
-        <input type="radio" name="api_select" id="c7">腾讯
-      </button>
-      <button type="button" class="btn btn-outline-secondary" onclick="">
-        <input type="radio" name="api_select" id="c8">哔哩哔哩
-      </button>
-      <button type="button" class="btn btn-outline-secondary" onclick="">
-        <input type="radio" name="api_select" id="c9">中关村
-      </button>
-      <button type="button" class="btn btn-outline-secondary" onclick="">
-        <input type="radio" name="api_select" id="c10">网易
-      </button>
-      <button type="button" class="btn btn-outline-secondary" onclick="">
-        <input type="radio" name="api_select" id="c11">阿里
-      </button>
-      <button type="button" class="btn btn-outline-secondary" onclick="">
-        <input type="radio" name="api_select" id="c12">奇虎360
-      </button>
-      <button type="button" class="btn btn-outline-secondary" onclick="">
-        <input type="radio" name="api_select" id="c13">稿定
-      </button>
-      <button type="button" class="btn btn-outline-secondary" onclick="">
-        <input type="radio" name="api_select" id="c14">58同城
-      </button>
-      <button type="button" class="btn btn-outline-secondary" onclick="">
-        <input type="radio" name="api_select" id="c15">搜狐
-      </button>
+      <button type="button" class="select_background btn btn-outline-secondary" id="sogou">搜狗百科</button>
+      <button type="button" class="btn btn-outline-secondary" id="tcl">TCL客服</button>
+      <button type="button" class="btn btn-outline-secondary" id="sohu">搜狐焦点</button>
     </div>
 
     <!-- 选择图片上传控件 -->
@@ -83,10 +41,10 @@
   </div>
 
   <!-- 复制链接按钮 -->
-  <div class="copy btn btn-secondary" id="copy">复制链接</div>
+  <div class="copy btn btn-secondary" id="copy" style="margin:20px auto 10px;">复制链接</div>
 
   <!-- 复制提示 -->
-  <div class="alert alert-success" style="margin-top: 20px;display: none;">
+  <div class="copysuccess" style="position:fixed;top:0;left:0;right:0;margin:0 auto;display: none;">
     <strong>复制成功!</strong> 
   </div>
   
@@ -95,104 +53,28 @@
 
 </div>
 
-<!-- JS -->
 <script type="text/javascript">
-//默认选择API1
-var api = 'huluxia.php';
 
-//API1
-$('#c1').click(function(){
-    api = 'huluxia.php';
-    console.log(api);
-});
-//API2
-$('#c2').click(function(){
-    api = 'baidu.php';
-    console.log(api);
-});
-//API3
-$('#c3').click(function(){
-    api = 'xiaomi.php';
-    console.log(api);
-});
-//API4
-$('#c4').click(function(){
-    api = 'toutiao.php';
-    console.log(api);
-});
-//API5
-$('#c5').click(function(){
-    api = 'wukong.php';
-    console.log(api);
-});
-//API6
-$('#c6').click(function(){
-    api = 'sina.php';
-    console.log(api);
-});
-//API7
-$('#c7').click(function(){
-    api = 'tencent.php';
-    console.log(api);
-});
-//API8
-$('#c8').click(function(){
-    api = 'bilibili.php';
-    console.log(api);
-});
-//API9
-$('#c9').click(function(){
-    api = 'zol.php';
-    console.log(api);
-});
-//API10
-$('#c10').click(function(){
-    api = 'wangyi.php';
-    console.log(api);
-});
-//API11
-$('#c11').click(function(){
-    api = 'ali.php';
-    console.log(api);
-});
-//API12
-$('#c12').click(function(){
-    api = 'qihoo.php';
-    console.log(api);
-});
-//API13
-$('#c13').click(function(){
-    api = 'gaoding.php';
-    console.log(api);
-});
-//API14
-$('#c14').click(function(){
-    api = 'wuba.php';
-    console.log(api);
-});
-//API15
-$('#c15').click(function(){
-    api = 'souhu.php';
-    console.log(api);
-});
+// 默认API
+api = 'sogou.php';
 
-//对当前点击对象(通道号按钮)更换css样式
-$(document).ready(function(){
+// 对当前点击对象更换css
+$(document).ready(function(e){
     $('.container .card .card-header button').click(function(){
         $(this).siblings().removeClass('select_background');
         $(this).addClass('select_background');
+        // 点击后的API
+        api = this.id+'.php';
     })
 });
 
-//监听[input=file]是否已经选择文件
+// 监听[input=file]是否已经选择文件
 $("#imgselect").bind('input propertychange',function(e){
-  //如果已经选择，就执行上传图片函数
   imgupload();
 })
 
-//图片上传函数
+// 图片上传
 function imgupload(){
-  //获取表单数据
   var form = new FormData(document.getElementById("form"));
   $.ajax({
     url:api,
@@ -202,32 +84,28 @@ function imgupload(){
     processData: false,
     contentType: false,
     success:function(data){
-      if (data.code == "200") {
-        $(".container .imgdiv").html("<img src='"+data.path+"'/>");
-        $(".container .card .Result").html("<div class=\"card-footer\" id=\"image_url\">"+data.path+"</div>");
-        $("#copy").css("display","block");
-        //上传成功后，立马清空value，就可以再次进行监听
-        $("#imgselect").val("");
-      }else if (data.code == "404") {
-        $("#imgdiv").html("上传失败，可能是服务器问题");
-      }else if (data.code == "403") {
-        $("#imgdiv").html("无法上传此类格式文件");
-      }
+        if(data.code == 200){
+            $(".container .imgdiv").html("<img src='"+data.path+"'/>");
+            $(".container .card .Result").html("<div class=\"card-footer\" id=\"image_url\">"+data.path+"</div>");
+            $("#copy").css("display","block");
+            $("#imgselect").val("");
+        }else{
+            $(".container .card .Result").html("<div class=\"card-footer\">"+data.msg+"</div>");
+        }
     },
     error:function(data){
-      alert("上传失败，可能是"+api+"服务器问题");
+        $(".container .card .Result").html("<div class=\"card-footer\">上传失败，可能是可能是"+api+"服务器问题</div>");
     },
     beforeSend:function(data){
-      $(".container .card .Result").html("<div class=\"card-footer\">正在上传中...</div>");
+        $(".container .card .Result").html("<div class=\"card-footer\">正在上传中...</div>");
     }
   })
 }
 
-//复制链接
+// 复制链接
 function hide(){
-  $(".container .alert-success").css("display","none");
+  $(".container .copysuccess").css("display","none");
 }
-
 function copyArticle(event){
   const range = document.createRange();
   range.selectNode(document.getElementById('image_url'));
@@ -235,7 +113,7 @@ function copyArticle(event){
   if(selection.rangeCount > 0) selection.removeAllRanges();
   selection.addRange(range);
   document.execCommand('copy');
-  $(".container .alert-success").css("display","block");
+  $(".container .copysuccess").css("display","block");
   setTimeout('hide()', 2000);
 }
 window.onload = function () {
