@@ -25,3 +25,6 @@ document.cookie
 <img src="https://sc01.alicdn.com/kf/H81918f5a89e844a9a5115206143532e4r.png" />
 
 将XXX替换为获取到的cookie即可，注意，单引号不需要复制。
+
+# 声明
+进攻个人学习，请勿用于非法用途，法律风险自负。
