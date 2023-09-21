@@ -32,6 +32,9 @@ document.cookie
 
 # 用到的技术
 前端：Vue.js 2.6.14、axios、element-ui
+![](https://img.shields.io/badge/Vue.js 2.6.14-brightgreen.svg)
+![](https://img.shields.io/badge/axios-brightgreen.svg)
+![](https://img.shields.io/badge/element-ui-brightgreen.svg)
 后端：php
 
 # 声明
