@@ -12,7 +12,11 @@ liKeYun聚合图床是一个第三方图片服务器图片上传工具，为个�
 
 其中360.php、jd.php、ali.php需要登录后获取cookie并配置到源码中才可以使用。
 
-**如何获取Cookie？**
-以360图床的源站为例，打开360的图床抓包的页面，登录后，F12打开开发者工具，点击console进入控制台，输入`document.cookie`即可弹出cookie<br/>
+**如何获取Cookie？** <br/>
+以360图床的源站为例，打开360的图床抓包的页面，登录后，F12打开开发者工具，点击console进入控制台，输入：
+```
+document.cookie
+```
+即可弹出cookie<br/>
 
 <img src="http://p15.qhimg.com/t01ea45ccfcf4c79b5d.jpg" />
