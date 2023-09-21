@@ -3,7 +3,7 @@
 liKeYun聚合图床是一个第三方图片服务器图片上传工具，为个人网站运营者提供图片储存，图片外链生成。图片均上传至一些知名站点，长期维护。<br/><br/>
 ![](http://img.shields.io/badge/Vue.js-2.6.14-brightgreen.svg)
 ![](http://img.shields.io/badge/axios.js-0.21.4-brightgreen.svg)
-![](http://img.shields.io/badge/ElementUi-2.15.3-brightgreen.svg)
+![](http://img.shields.io/badge/ElementUI-2.15.3-brightgreen.svg)
 ![](http://img.shields.io/badge/VueClipboard2-0.3.3-brightgreen.svg)
 ![](http://img.shields.io/badge/PHP-7.4.3-brightgreen.svg)
 
