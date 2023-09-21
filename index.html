@@ -2,10 +2,10 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <meta name="author" content="TANKING - 里客云科技 - https://segmentfault.com/u/tanking">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0,viewport-fit=cover">
     <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.14/vue.min.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.4/axios.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue-clipboard2/0.3.3/vue-clipboard.min.js"></script>
     <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/element-ui/2.15.3/theme-chalk/index.css">
     <script src="https://cdn.bootcdn.net/ajax/libs/element-ui/2.15.3/index.js"></script>
     <style>
@@ -203,7 +203,12 @@
             :before-close="handleClose">
             <span>{{ imgPath }}</span>
             <span slot="footer" class="dialog-footer">
-            <el-button @click="dialogVisible = false">关闭</el-button>
+                <el-button 
+                    v-clipboard:copy="imgPath" 
+                    v-clipboard:success="onCopySuccess" 
+                    v-clipboard:error="onCopyError">
+                    {{ copyButtonText }}
+                </el-button>
             </span>
         </el-dialog>
     </div>
@@ -241,6 +246,7 @@
                 error: false, // 错误提示
                 msg: '', // 错误信息
                 dialogVisible: false, // 模态框显示状态
+                copyButtonText: '复制链接'
             },
             methods: {
                 
@@ -263,12 +269,11 @@
                         // 对微信永久素材库输出的链接进行特殊处理
                         if (response.path.includes("qpic.cn")) {
                             
-                            // 微信的永久素材无法在白名单站点显示
-                            // 所以才需要使用imgbrige.php代理绕过防盗链
                             this.imgPreviewPath = './api/imgbrige.php?url=' + response.path;
                         }
 
                         // 显示图片链接
+                        this.copyButtonText = '复制链接'
                         this.dialogVisible = true;
                     }else {
                         
@@ -296,7 +301,21 @@
                         done();
                     })
                     .catch(_ => {});
-                }
+                },
+                
+                // 复制成功
+                onCopySuccess: function(e) {
+                  
+                    // 复制成功
+                    this.copyButtonText = '已复制'
+                },
+                
+                // 复制失败
+                onCopyError: function(e) {
+                    
+                    // 复制失败
+                    this.copyButtonText = '复制失败'
+                },
             },
         });
     </script>
