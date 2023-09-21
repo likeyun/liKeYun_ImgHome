@@ -20,3 +20,6 @@ document.cookie
 即可弹出cookie<br/>
 
 <img src="http://p15.qhimg.com/t01ea45ccfcf4c79b5d.jpg" />
+
+然后将cookie配置到源码中：<br/>
+<img src="https://img10.360buyimg.com/imgzone/jfs/t1/166188/6/40783/31612/650c1b4fFf8a35649/37213efccb6d4131.jpg" />
