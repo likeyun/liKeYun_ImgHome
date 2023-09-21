@@ -21,5 +21,5 @@ document.cookie
 
 <img src="http://p15.qhimg.com/t01ea45ccfcf4c79b5d.jpg" />
 
-**然后将cookie配置到源码中：** <br/>
+**然后将cookie配置到源码中：** 
 <img src="https://sc01.alicdn.com/kf/H81918f5a89e844a9a5115206143532e4r.png" />
