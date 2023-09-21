@@ -1,6 +1,11 @@
 # 第三方图床
 
-liKeYun聚合图床是一个第三方图片服务器图片上传工具，为个人网站运营者提供图片储存，图片外链生成。图片均上传至一些知名站点，长期维护。
+liKeYun聚合图床是一个第三方图片服务器图片上传工具，为个人网站运营者提供图片储存，图片外链生成。图片均上传至一些知名站点，长期维护。<br/><br/>
+![](http://img.shields.io/badge/Vue.js-2.6.14-brightgreen.svg)
+![](http://img.shields.io/badge/axios.js-0.21.4-brightgreen.svg)
+![](http://img.shields.io/badge/ElementUi-2.15.3-brightgreen.svg)
+![](http://img.shields.io/badge/PHP-7.4.3-brightgreen.svg)
+
 
 # 图片上传API
 
@@ -29,13 +34,6 @@ document.cookie
 # 界面
 <img src="https://sc01.alicdn.com/kf/Hbff92229f08c47be84e5875d633b9537D.png" />
 <img src="https://sc01.alicdn.com/kf/H8588d4d1f2ca49889dd56822b432536bh.png" />
-
-# 用到的技术
-前端：Vue.js 2.6.14、axios、element-ui
-![](https://img.shields.io/badge/Vue.js 2.6.14-brightgreen.svg)
-![](https://img.shields.io/badge/axios-brightgreen.svg)
-![](https://img.shields.io/badge/element-ui-brightgreen.svg)
-后端：php
 
 # 声明
 仅供个人学习，请勿用于非法用途，法律风险自负。
