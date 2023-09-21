@@ -27,6 +27,7 @@ document.cookie
 <img src="http://p15.qhimg.com/t01ea45ccfcf4c79b5d.jpg" />
 
 **然后将cookie配置到源码中：** 
+<br/>
 <img src="https://img10.360buyimg.com/imgzone/jfs/t1/173580/16/40977/31220/650c3fccF4c18a559/e78249aaa9f9d2fb.jpg" />
 
 将XXX替换为获取到的cookie即可，注意，单引号不需要复制。
