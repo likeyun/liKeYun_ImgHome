@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="TANKING - 里客云科技 - https://segmentfault.com/u/tanking">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0,viewport-fit=cover">
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.14/vue.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.4/axios.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/element-ui/2.15.3/theme-chalk/index.css">
+    <script src="https://cdn.bootcdn.net/ajax/libs/element-ui/2.15.3/index.js"></script>
+    <style>
+        body{
+            background: #f1f1f1;
+        }
+        
+        /* 默认样式，适用于PC端（大于等于1200px宽度） */
+        .container {
+            width: 50%;
+            margin: 30px auto 0;
+            background: #fff;
+            border-radius: 10px;
+            padding-bottom: 10px;
+        }
+        
+        .el-dialog {
+            width: 30%;
+        }
+        
+        /* 媒体查询，适用于PAD端（768px - 1199px宽度） */
+        @media screen and (min-width: 768px) and (max-width: 1199px) {
+            .container {
+                width: 80%;
+                border-radius: 10px;
+            }
+            
+            .el-dialog {
+                width: 30%;
+            }
+        }
+        
+        /* 媒体查询，适用于手机端（小于768px宽度） */
+        @media screen and (max-width: 767px) {
+            .container {
+                width: 90%;
+                border-radius: 10px;
+            }
+            
+            .el-dialog {
+                width: 80%;
+            }
+        }
+        
+        /*大标题*/
+        .h2 {
+            font-size: 35px;
+            font-weight: 400;
+            text-align: center;
+            line-height: 100px;
+            margin-bottom: 10px;
+        }
+        
+        /*button组*/
+        .container .button-group {
+            width: calc(100% - 60px);
+            padding: 30px;
+            padding-top: 0;
+        }
+        
+        /*上传图片*/
+        .upload-demo {
+            width: calc(100% - 60px);
+            padding: 30;
+            margin: 0 auto;
+        }
+        
+        .el-upload {
+            width: 100%;
+        }
+        
+        .el-upload-dragger {
+            width: 100%;
+        }
+        
+        /*被选中的API的样式*/
+        .selected {
+            color: #fff;
+            background-color: #409eff;
+            border-color: #409eff;
+        }
+        
+        /*自定义的button*/
+        api-button {
+            display: inline-block;
+            line-height: 1;
+            white-space: nowrap;
+            cursor: pointer;
+            background: #fff;
+            border: 1px solid #dcdfe6;
+            color: #606266;
+            text-align: center;
+            box-sizing: border-box;
+            outline: none;
+            margin: 0 7px 7px 0;
+            transition: .1s;
+            font-weight: 500;
+            padding: 12px 20px;
+            font-size: 14px;
+            border-radius: 4px;
+        }
+        
+        .imgPreview {
+            width: calc(100% - 60px);
+            padding: 30;
+            margin: 30px auto 0;
+        }
+        
+        .imgPreview .img-pre {
+            max-width: 50%;
+            margin: 0 auto;
+            display: block;
+        }
+        
+        .upload-success {
+            width: calc(100% - 60px);
+            padding: 30;
+            margin: 15px auto 20px;
+        }
+        
+        .upload-error {
+            width: calc(100% - 60px);
+            padding: 30;
+            margin: 15px auto 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        
+        <div class="container">
+            
+            <!--网页标题-->
+            <title>{{ webtitle }}</title>
+            
+            <!--大标题-->
+            <p class="h2">{{ webtitle }}</p>
+            
+            <!--API接口-->
+            <div class="button-group">
+                <api-button
+                    v-for="item in apis"
+                    :key="item.api" 
+                    :data-api="item.api"
+                    @click="selectApi(item.api)"
+                    :class="{ 'selected': selectedApi === item.api }"
+                >
+                    {{ item.apiName }}
+                </api-button>
+            </div>
+            
+            <!--上传组件-->
+            <el-upload
+                class="upload-demo" 
+                :action="`./api/${selectedApi}.php`" 
+                :auto-upload="true" 
+                drag 
+                :on-success="handleSuccess"
+                :on-error="handleError"
+            >
+            <i class="el-icon-upload"></i>
+            <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
+            </el-upload>
+            
+            <!--图片预览-->
+            <div class="imgPreview">
+                <el-image :src="imgPreviewPath" v-if="imgPath" class="img-pre"></el-image>
+            </div>
+            
+            <!--上传成功-->
+            <div class="upload-success" v-if="imgPath">
+                <el-alert
+                    title="图片链接"
+                    type="success"
+                    :description="imgPath"
+                    show-icon>
+                </el-alert>
+            </div>
+            
+            <!--上传失败-->
+            <div class="upload-error" v-if="error">
+                <el-alert
+                    title="上传失败"
+                    type="error"
+                    :description="msg"
+                    show-icon>
+                </el-alert>
+            </div>
+        </div>
+        
+        <!--模态框-->
+        <el-dialog
+            title="上传成功" 
+            :visible.sync="dialogVisible" 
+            :before-close="handleClose">
+            <span>{{ imgPath }}</span>
+            <span slot="footer" class="dialog-footer">
+            <el-button @click="dialogVisible = false">关闭</el-button>
+            </span>
+        </el-dialog>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                webtitle: 'liKeYun聚合图床',
+                apis: [
+                    {
+                        'api':'360',
+                        'apiName':'360移动开放平台'
+                    },
+                    {
+                        'api':'tcl',
+                        'apiName':'TCL客服'
+                    },
+                    {
+                        'api':'jd',
+                        'apiName':'京东媒体资源管理中心'
+                    },
+                    {
+                        'api':'ali',
+                        'apiName':'阿里巴巴国际站'
+                    },
+                    {
+                        'api':'weixin',
+                        'apiName':'微信永久素材库'
+                    }
+                ],
+                selectedApi: '360', // 默认选中第一个按钮
+                imgPath: false, // 上传成功的图片地址
+                imgPreviewPath: '', // 图片预览的图片地址
+                error: false, // 错误提示
+                msg: '', // 错误信息
+                dialogVisible: false, // 模态框显示状态
+            },
+            methods: {
+                
+                // 切换API
+                selectApi(api) {
+                    this.selectedApi = api;
+                },
+                
+                // 请求成功
+                handleSuccess(response, file) {
+                    
+                    console.log('请求成功', response);
+                    if(response.code == 200) {
+                        
+                        // 200状态码
+                        // 上传成功
+                        this.imgPath = response.path;
+                        this.imgPreviewPath = response.path;
+                        
+                        // 对微信永久素材库输出的链接进行特殊处理
+                        if (response.path.includes("qpic.cn")) {
+                            
+                            // 微信的永久素材无法在白名单站点显示
+                            // 所以才需要使用imgbrige.php代理绕过防盗链
+                            this.imgPreviewPath = './api/imgbrige.php?url=' + response.path;
+                        }
+
+                        // 显示图片链接
+                        this.dialogVisible = true;
+                    }else {
+                        
+                        // 其它状态码
+                        // 上传失败
+                        this.imgPath = false;
+                        this.error = true;
+                        this.msg = response.msg;
+                    }
+                },
+                
+                // 后端服务发生错误
+                handleError(err, file) {
+                    
+                    console.error('上传失败', err);
+                    this.imgPath = false;
+                    this.error = true;
+                    this.msg = this.selectedApi + ".php" + "服务器发生错误！";
+                },
+                
+                // 关闭模态框
+                handleClose(done) {
+                    this.$confirm('确认关闭？')
+                    .then(_ => {
+                        done();
+                    })
+                    .catch(_ => {});
+                }
+            },
+        });
+    </script>
+</body>
+</html>
