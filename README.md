@@ -1,4 +1,4 @@
-# 第三方图床
+# liKeYun聚合图床
 
 liKeYun聚合图床是一个第三方图片服务器图片上传工具，为个人网站运营者提供图片储存，图片外链生成。图片均上传至一些知名站点，长期维护。<br/><br/>
 ![](http://img.shields.io/badge/Vue.js-2.6.14-brightgreen.svg)
@@ -7,11 +7,11 @@ liKeYun聚合图床是一个第三方图片服务器图片上传工具，为个�
 ![](http://img.shields.io/badge/VueClipboard2.js-0.3.3-brightgreen.svg)
 ![](http://img.shields.io/badge/PHP-7.4.3-brightgreen.svg)
 
-# 图片上传API
+# 大厂API
 
 目前有京东、阿里、360、微信、TCL的上传渠道。
 
-# 使用方法
+# 使用
 
 上传到服务器后，访问`index.html`
 
