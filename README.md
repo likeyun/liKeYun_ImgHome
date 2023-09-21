@@ -23,3 +23,5 @@ document.cookie
 
 **然后将cookie配置到源码中：** 
 <img src="https://sc01.alicdn.com/kf/H81918f5a89e844a9a5115206143532e4r.png" />
+
+将XXX替换为获取到的cookie即可，注意，单引号不需要复制。
