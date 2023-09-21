@@ -27,13 +27,13 @@ document.cookie
 <img src="http://p15.qhimg.com/t01ea45ccfcf4c79b5d.jpg" />
 
 **然后将cookie配置到源码中：** 
-<img src="https://sc01.alicdn.com/kf/H81918f5a89e844a9a5115206143532e4r.png" />
+<img src="https://img10.360buyimg.com/imgzone/jfs/t1/173580/16/40977/31220/650c3fccF4c18a559/e78249aaa9f9d2fb.jpg" />
 
 将XXX替换为获取到的cookie即可，注意，单引号不需要复制。
 
 # 界面
-<img src="https://sc01.alicdn.com/kf/Hbff92229f08c47be84e5875d633b9537D.png" />
-<img src="https://sc01.alicdn.com/kf/H8588d4d1f2ca49889dd56822b432536bh.png" />
+<img src="https://img10.360buyimg.com/imgzone/jfs/t1/218018/12/36503/19213/650c3f41F85549e87/6d83650ef2c71ea5.jpg" />
+<img src="https://img10.360buyimg.com/imgzone/jfs/t1/90549/31/42966/27938/650c3f90F1fac44b9/4c2a97036426e422.jpg" />
 
 # 声明
 仅供个人学习，请勿用于非法用途，法律风险自负。
