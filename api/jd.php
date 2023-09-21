@@ -58,7 +58,7 @@
             curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             
-            // 登录地址：https://dev.360.cn/mod3/developer/index/submittype/1
+            // 登录地址：https://imgzone.shop.jd.com/
             // 登录后按F12打开开发者工具，点击【console】或【控制台】粘贴【document.cookie】回车后就会弹出cookie
             // 这里要替换为你登录后的cookie
             $headers[] = "Cookie: xxx";
