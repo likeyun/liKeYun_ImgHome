@@ -4,8 +4,8 @@ liKeYun聚合图床是一个第三方图片服务器图片上传工具，为个�
 ![](http://img.shields.io/badge/Vue.js-2.6.14-brightgreen.svg)
 ![](http://img.shields.io/badge/axios.js-0.21.4-brightgreen.svg)
 ![](http://img.shields.io/badge/ElementUi-2.15.3-brightgreen.svg)
+![](http://img.shields.io/badge/VueClipboard2-0.3.3-brightgreen.svg)
 ![](http://img.shields.io/badge/PHP-7.4.3-brightgreen.svg)
-
 
 # 图片上传API
 
